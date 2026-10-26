@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography Collection</title>
+  <meta name="description" content="A photography collection — landscapes, cityscapes, portraits, kids, sports, birds and macro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="brand" data-category="all">
+      <span class="brand-mark">◐</span>
+      <span class="brand-name" id="brand-name">Photography</span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="site-nav" id="site-nav" aria-label="Gallery categories"></nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg" id="hero-bg"></div>
+      <div class="hero-content">
+        <p class="eyebrow">A collection of moments</p>
+        <h1 id="hero-title">Light, Life &amp; Everything In Between</h1>
+        <p class="hero-sub" id="hero-sub">Landscapes · Cityscapes · Portraits · Kids · Sports · Birds · Macro</p>
+        <a href="#collections" class="btn">Explore the collections</a>
+      </div>
+    </section>
+
+    <section class="collections" id="collections">
+      <h2 class="section-title">Collections</h2>
+      <div class="collection-grid" id="collection-grid"></div>
+    </section>
+
+    <section class="gallery-section" id="gallery-section">
+      <div class="gallery-head">
+        <h2 class="section-title" id="gallery-title">All Work</h2>
+        <p class="gallery-desc" id="gallery-desc"></p>
+      </div>
+      <div class="filters" id="filters" role="tablist"></div>
+      <div class="gallery" id="gallery"></div>
+      <p class="empty" id="empty" hidden>No photos here yet — add some to <code>js/photos.js</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> <span id="footer-name">Photography</span>. All images are copyrighted and may not be used without permission.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous photo">&#8249;</button>
+    <figure class="lb-figure">
+      <img id="lb-img" alt="" />
+      <figcaption>
+        <span class="lb-title" id="lb-title"></span>
+        <span class="lb-meta" id="lb-meta"></span>
+        <span class="lb-count" id="lb-count"></span>
+      </figcaption>
+    </figure>
+    <button class="lb-next" aria-label="Next photo">&#8250;</button>
+  </div>
+
+  <script src="js/photos.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
