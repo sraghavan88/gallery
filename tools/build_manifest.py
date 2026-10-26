@@ -5,7 +5,8 @@ Usage:  python3 tools/build_manifest.py
 
 - Every image in images/<category>/ becomes an entry (sorted by filename).
 - Titles default to the filename ("golden-gate_bridge.jpg" -> "Golden Gate Bridge");
-  camera-style names like "IMG_1234" or "TU5A4766_SnapseedCopy" get no title.
+  camera/export names like "IMG_1234", "TU5A4766_SnapseedCopy" or Apple Photos
+  UUIDs get no title.
 - If images/<category>/thumbs/<same filename> exists it's used for the grid.
 - Width/height are recorded so the gallery can lay out rows before images load.
 - Titles/meta you've already edited in js/photos.js are kept for files still present.
@@ -20,7 +21,13 @@ ROOT = Path(__file__).resolve().parent.parent
 PHOTOS_JS = ROOT / "js" / "photos.js"
 IMAGES = ROOT / "images"
 EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"}
-CAMERA_NAME = re.compile(r"^_?[A-Z0-9]{3,5}[_-]?\d{3,5}([ _-]*(snapseed|copy|edit(ed)?|final|\d+))*$", re.I)
+CAMERA_NAME = re.compile(
+    r"^(_?[A-Z0-9]{3,5}[_-]?\d{3,5}"                    # IMG_1234, TU5A4766, _16P1099
+    r"|[0-9A-F]{8}(-[0-9A-F]{4}){3}-[0-9A-F]{12}"         # Apple Photos export UUIDs
+    r"|snapseed|fullsizerender)"                          # editor/iPhone export names
+    r"([ _-]*(snapseed|copy|edit(ed)?|final|a|\d+))*$",
+    re.I,
+)
 
 
 def image_size(path):
