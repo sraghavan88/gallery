@@ -68,6 +68,7 @@ window.PHOTOS = [
   { category: "cityscapes", src: "images/cityscapes/F57CCB29-EB25-4AEA-8AD7-E9BE12B2A385.JPG", thumb: "images/cityscapes/thumbs/F57CCB29-EB25-4AEA-8AD7-E9BE12B2A385.JPG", w: 2304, h: 1536, title: "", meta: "" },
   { category: "cityscapes", src: "images/cityscapes/FullSizeRender-5.jpg", thumb: "images/cityscapes/thumbs/FullSizeRender-5.jpg", w: 2400, h: 1600, title: "", meta: "" },
   { category: "cityscapes", src: "images/cityscapes/TU5A3302.jpg", thumb: "images/cityscapes/thumbs/TU5A3302.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "cityscapes", src: "images/cityscapes/TU5A3904.jpg", thumb: "images/cityscapes/thumbs/TU5A3904.jpg", w: 2400, h: 1600, title: "", meta: "" },
 
   // Birds
   { category: "birds", src: "images/birds/5V8A5708.jpg", thumb: "images/birds/thumbs/5V8A5708.jpg", w: 1919, h: 2400, title: "", meta: "" },
