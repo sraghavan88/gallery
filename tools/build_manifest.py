@@ -5,7 +5,7 @@ Usage:  python3 tools/build_manifest.py
 
 - Every image in images/<category>/ becomes an entry (sorted by filename).
 - Titles default to the filename ("golden-gate_bridge.jpg" -> "Golden Gate Bridge");
-  camera-style names like "IMG_1234" or "TU5A4766" get no title.
+  camera-style names like "IMG_1234" or "TU5A4766_SnapseedCopy" get no title.
 - If images/<category>/thumbs/<same filename> exists it's used for the grid.
 - Titles/meta you've already edited in js/photos.js are kept for files still present.
 - SITE and CATEGORIES in js/photos.js are left untouched.
@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PHOTOS_JS = ROOT / "js" / "photos.js"
 IMAGES = ROOT / "images"
 EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"}
-CAMERA_NAME = re.compile(r"^_?[A-Z0-9]{3,5}[_-]?\d{3,5}$", re.I)
+CAMERA_NAME = re.compile(r"^_?[A-Z0-9]{3,5}[_-]?\d{3,5}([ _-]*(snapseed|copy|edit(ed)?|final|\d+))*$", re.I)
 
 text = PHOTOS_JS.read_text()
 categories = re.findall(r'id:\s*"([^"]+)"', text.split("window.PHOTOS")[0])
