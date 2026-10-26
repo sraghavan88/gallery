@@ -4,7 +4,9 @@
 Usage:  python3 tools/build_manifest.py
 
 - Every image in images/<category>/ becomes an entry (sorted by filename).
-- Titles default to the filename ("golden-gate_bridge.jpg" -> "Golden Gate Bridge").
+- Titles default to the filename ("golden-gate_bridge.jpg" -> "Golden Gate Bridge");
+  camera-style names like "IMG_1234" or "TU5A4766" get no title.
+- If images/<category>/thumbs/<same filename> exists it's used for the grid.
 - Titles/meta you've already edited in js/photos.js are kept for files still present.
 - SITE and CATEGORIES in js/photos.js are left untouched.
 """
@@ -16,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PHOTOS_JS = ROOT / "js" / "photos.js"
 IMAGES = ROOT / "images"
 EXTS = {".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"}
+CAMERA_NAME = re.compile(r"^_?[A-Z0-9]{3,5}[_-]?\d{3,5}$", re.I)
 
 text = PHOTOS_JS.read_text()
 categories = re.findall(r'id:\s*"([^"]+)"', text.split("window.PHOTOS")[0])
@@ -43,9 +46,13 @@ for cat in categories:
     lines.append(f"  // {cat.capitalize()}")
     for f in files:
         src = f.relative_to(ROOT).as_posix()
-        default_title = re.sub(r"[-_]+", " ", f.stem).strip().title()
+        default_title = "" if CAMERA_NAME.match(f.stem) else re.sub(r"[-_]+", " ", f.stem).strip().title()
         title, meta = existing.get(src, (None, ""))
-        entry = {"category": cat, "src": src, "title": title or default_title, "meta": meta}
+        entry = {"category": cat, "src": src}
+        thumb = f.parent / "thumbs" / f.name
+        if thumb.exists():
+            entry["thumb"] = thumb.relative_to(ROOT).as_posix()
+        entry.update(title=default_title if title is None else title, meta=meta)
         body = ", ".join(f"{k}: {json.dumps(v, ensure_ascii=False)}" for k, v in entry.items())
         lines.append(f"  {{ {body} }},")
         total += 1

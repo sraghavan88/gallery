@@ -50,10 +50,10 @@
     const list = photosIn(c.id);
     const cover = c.cover || (list[0] && list[0].src) || "";
     return `
-      <a class="collection-card" href="#${c.id}" data-category="${c.id}">
+      <a class="collection-card${cover ? "" : " is-empty"}" href="#${c.id}" data-category="${c.id}">
         ${cover ? `<img src="${cover}" alt="${c.name}" loading="lazy" />` : ""}
         <div class="label">
-          <span>${list.length} photo${list.length === 1 ? "" : "s"}</span>
+          <span>${list.length ? `${list.length} photo${list.length === 1 ? "" : "s"}` : "Coming soon"}</span>
           <h3>${c.name}</h3>
         </div>
       </a>`;
