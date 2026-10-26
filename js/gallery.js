@@ -71,7 +71,7 @@
     gallery.innerHTML = visible
       .map(
         (p, i) => `
-        <figure tabindex="0" data-index="${i}" style="animation-delay:${Math.min(i, 12) * 40}ms">
+        <figure tabindex="0" data-index="${i}" style="${p.w && p.h ? `--r:${(p.w / p.h).toFixed(4)};` : ""}animation-delay:${Math.min(i, 12) * 40}ms">
           <img src="${p.thumb || p.src}" alt="${p.title || ""}" loading="lazy" />
           <figcaption>
             <small>${catById[p.category]?.name || ""}</small>
@@ -152,6 +152,14 @@
     document.body.style.overflow = "";
     gallery.querySelector(`[data-index="${lbIndex}"]`)?.focus();
   }
+
+  // Photos listed without w/h: measure once loaded so the row layout is correct
+  gallery.addEventListener("load", (e) => {
+    const img = e.target, fig = img.closest("figure");
+    if (fig && !fig.style.getPropertyValue("--r") && img.naturalHeight) {
+      fig.style.setProperty("--r", (img.naturalWidth / img.naturalHeight).toFixed(4));
+    }
+  }, true);
 
   gallery.addEventListener("click", (e) => {
     const fig = e.target.closest("figure");

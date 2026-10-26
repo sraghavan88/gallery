@@ -33,24 +33,24 @@ window.CATEGORIES = [
 
 window.PHOTOS = [
   // Landscapes
-  { category: "landscapes", src: "images/landscapes/IMG_2555.JPG", thumb: "images/landscapes/thumbs/IMG_2555.JPG", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/TU5A3035_SnapseedCopy.jpg", thumb: "images/landscapes/thumbs/TU5A3035_SnapseedCopy.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/TU5A4755.jpg", thumb: "images/landscapes/thumbs/TU5A4755.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/TU5A4766.jpg", thumb: "images/landscapes/thumbs/TU5A4766.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/TU5A4776.jpg", thumb: "images/landscapes/thumbs/TU5A4776.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/_16P0830.jpg", thumb: "images/landscapes/thumbs/_16P0830.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/_16P1067.jpg", thumb: "images/landscapes/thumbs/_16P1067.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/_16P1099.jpg", thumb: "images/landscapes/thumbs/_16P1099.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/_16P1129.jpg", thumb: "images/landscapes/thumbs/_16P1129.jpg", title: "", meta: "" },
-  { category: "landscapes", src: "images/landscapes/_60A0314.jpg", thumb: "images/landscapes/thumbs/_60A0314.jpg", title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/IMG_2555.JPG", thumb: "images/landscapes/thumbs/IMG_2555.JPG", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/TU5A3035_SnapseedCopy.jpg", thumb: "images/landscapes/thumbs/TU5A3035_SnapseedCopy.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/TU5A4755.jpg", thumb: "images/landscapes/thumbs/TU5A4755.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/TU5A4766.jpg", thumb: "images/landscapes/thumbs/TU5A4766.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/TU5A4776.jpg", thumb: "images/landscapes/thumbs/TU5A4776.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/_16P0830.jpg", thumb: "images/landscapes/thumbs/_16P0830.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/_16P1067.jpg", thumb: "images/landscapes/thumbs/_16P1067.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/_16P1099.jpg", thumb: "images/landscapes/thumbs/_16P1099.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/_16P1129.jpg", thumb: "images/landscapes/thumbs/_16P1129.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "landscapes", src: "images/landscapes/_60A0314.jpg", thumb: "images/landscapes/thumbs/_60A0314.jpg", w: 2400, h: 1600, title: "", meta: "" },
 
   // Cityscapes
-  { category: "cityscapes", src: "images/cityscapes/5V8A0107.jpg", thumb: "images/cityscapes/thumbs/5V8A0107.jpg", title: "", meta: "" },
-  { category: "cityscapes", src: "images/cityscapes/TU5A3302.jpg", thumb: "images/cityscapes/thumbs/TU5A3302.jpg", title: "", meta: "" },
+  { category: "cityscapes", src: "images/cityscapes/5V8A0107.jpg", thumb: "images/cityscapes/thumbs/5V8A0107.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "cityscapes", src: "images/cityscapes/TU5A3302.jpg", thumb: "images/cityscapes/thumbs/TU5A3302.jpg", w: 2400, h: 1600, title: "", meta: "" },
 
   // Birds
-  { category: "birds", src: "images/birds/IMG_2342.jpg", thumb: "images/birds/thumbs/IMG_2342.jpg", title: "", meta: "" },
-  { category: "birds", src: "images/birds/IMG_2343.jpg", thumb: "images/birds/thumbs/IMG_2343.jpg", title: "", meta: "" },
-  { category: "birds", src: "images/birds/IMG_2411.jpg", thumb: "images/birds/thumbs/IMG_2411.jpg", title: "", meta: "" },
-  { category: "birds", src: "images/birds/IMG_2412.jpg", thumb: "images/birds/thumbs/IMG_2412.jpg", title: "", meta: "" },
+  { category: "birds", src: "images/birds/IMG_2342.jpg", thumb: "images/birds/thumbs/IMG_2342.jpg", w: 2400, h: 1599, title: "", meta: "" },
+  { category: "birds", src: "images/birds/IMG_2343.jpg", thumb: "images/birds/thumbs/IMG_2343.jpg", w: 1857, h: 2321, title: "", meta: "" },
+  { category: "birds", src: "images/birds/IMG_2411.jpg", thumb: "images/birds/thumbs/IMG_2411.jpg", w: 2400, h: 1600, title: "", meta: "" },
+  { category: "birds", src: "images/birds/IMG_2412.jpg", thumb: "images/birds/thumbs/IMG_2412.jpg", w: 1919, h: 2400, title: "", meta: "" },
 ];

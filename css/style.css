@@ -112,15 +112,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .filters button.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 .filters .count { opacity: .6; margin-left: .35rem; }
 
-/* ---------- Masonry gallery ---------- */
-.gallery { columns: 4 280px; column-gap: 1rem; }
+/* ---------- Justified gallery ----------
+ * Every photo in a row shares one height and its width follows its aspect
+ * ratio (--r = width / height), so landscape and portrait shots line up with
+ * straight row edges. --row-h is the target row height.
+ */
+.gallery { --row-h: 240px; display: flex; flex-wrap: wrap; gap: .75rem; }
+.gallery::after { content: ""; flex-grow: 999999; } /* keeps the last row from stretching */
 .gallery figure {
-  break-inside: avoid; margin-bottom: 1rem; position: relative; overflow: hidden;
+  --r: 1.5;
+  flex-grow: var(--r); flex-basis: calc(var(--r) * var(--row-h));
+  position: relative; overflow: hidden;
   border-radius: var(--radius); cursor: zoom-in; background: var(--bg-soft);
   opacity: 0; transform: translateY(16px);
   animation: rise .6s ease forwards;
 }
-.gallery img { width: 100%; height: auto; transition: transform .6s ease; }
+.gallery img { width: 100%; height: auto; aspect-ratio: var(--r); object-fit: cover; transition: transform .6s ease; }
 .gallery figure:hover img { transform: scale(1.04); }
 .gallery figcaption {
   position: absolute; inset: auto 0 0 0; padding: 1rem;
@@ -172,6 +179,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .site-nav a.active { border-bottom: 0; color: var(--accent); }
 }
 @media (max-width: 600px) {
+  .gallery { --row-h: 170px; gap: .5rem; }
   .lb-prev, .lb-next { top: auto; bottom: 1rem; }
 }
 @media (prefers-reduced-motion: reduce) {
